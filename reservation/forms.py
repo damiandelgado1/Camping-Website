@@ -1,9 +1,15 @@
 from django import forms
+from .models import Reservation
 
 # Form for create a New Reservation
-class MakeReservation(forms.Form):
-    client = forms.TextInput()
-    persons = forms.IntegerField()
-    entrance = forms.DateField()
-    exit = forms.DateField()
-    payment = forms.DecimalField(max_digits=6, decimal_places=3)
+class MakeReservation(forms.ModelForm):
+    class Meta:
+        model = Reservation
+        fields = [
+            "client"
+            "cabin"
+            "persons",
+            "entrance",
+            "exit",
+            "payment",
+        ]

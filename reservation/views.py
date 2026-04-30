@@ -10,7 +10,7 @@ from cabin.models import Cabin
 @login_required
 def create_reservation(request):
     if request.POST:
-        form = MakeReservation()
+        form = MakeReservation(request.POST)
 
         if form.is_valid():
             client = form.cleaned_data["client"]
