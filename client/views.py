@@ -1,13 +1,27 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, logout
-from .forms import Register, Login
+from .forms import Contact, Register, Login
 from django.contrib import messages
+
+
+# Contact for Camping
+def contact_camping(request):
+    if request.POST:
+        form = Contact()
+
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            email = form.cleaned_data["email"]
+            phone = form.cleaned_data["phone"]
+
+            form.save()
+            return render(request, "home/form.html")
 
 
 # Register of Client
 def register_client(request):
-    if request.POST:
-        form = Register.objects.create(request.POST)
+    if request.method == "GET":
+        form = Register()
 
         if form.is_valid():
             first_name = form.cleaned_data["first_name"]
@@ -30,39 +44,33 @@ def register_client(request):
                 form.save()
                 messages.success(request, 'El Registro ha sido Completado')
 
-                context = {
-                    "Name": first_name,
-                    "Last Name": last_name,
-                    "Email": email,
-                    "Phone": phone,
-                    "Password 1": password1,
-                    "Password 2": password2
-                }
-
-                return render(request, "", context)
+                return render(request, "home/register.html")
 
         else:
             messages.info(request, 'El Registro no puede quedar vacio')
-            
-            return render(request, "")
+            return render(request, "home/register.html")
+    
+    return render(request, "home/register.html")
 
 
 # Login of Client
 def login_client(request):
-    if request.method == "POST":
+    if request.GET:
         form = Login()
 
         if form.is_valid():
             email = form.cleaned_data["email"]
-            password1 = form.cleaned_data["password1"]
+            password = form.cleaned_data["password"]
 
-            client = authenticate(email, password1)
+            client = authenticate(email, password)
 
             if "@gmail.com" not in client.email:
                 messages.info(request, 'El email no es valido. Ingresalo con el "@gmail.com"')
 
             else:
                 messages.success(request, 'Sesion Iniciada correctamente')
+
+                return render(request, "home/login.html")
 
         else:
             form = Login()
@@ -73,4 +81,4 @@ def login_client(request):
 def logout_client(request):
     logout(request)
     messages.info(request, 'Sesion cerrada')
-    return redirect('')
+    return redirect('home')

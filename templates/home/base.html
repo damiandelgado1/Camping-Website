@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Camping Sendero del Condor </title>
+</head>
+<body>
+    <!-- Name of site and navegation menu for See different Options -->
+    <header>
+        {% include '_includes/header.html' %}
+    </header>
+
+    <nav>
+        <a href="{% url 'client:register_client' %}"> Registrarse </a>
+        <a href="{% url 'client:login_client' %}"> Iniciar Sesion </a>
+    </nav>
+
+    <!-- Main page with Description by the site -->
+    <main>
+        {% block content %} {% endblock %}
+    </main>
+
+    <!-- Display cabin's availability -->
+    <section>
+        {% block cabin %} {% endblock %}
+    </section>
+
+    <!-- Contact form for contact to Site -->
+    <footer>
+        {% include 'home/form.html' %}
+        {% include '_includes/footer.html' %}
+    </footer>
+</body>

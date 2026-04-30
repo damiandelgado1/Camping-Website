@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from cabin.models import Cabin
 
 
@@ -27,17 +27,6 @@ class CreateCabin(CreateView):
         "bathroom",
         "dining_room",
         "kitchen",
-        "availability",
-        "price"
-    ]
-    template_name = ""
-    success_url = reverse_lazy("")
-
-
-# Modify a Cabin for reserve
-class ModifyCabin(UpdateView):
-    model = Cabin
-    fields = [
         "availability",
         "price"
     ]

@@ -6,8 +6,8 @@ class MakeReservation(forms.ModelForm):
     class Meta:
         model = Reservation
         fields = [
-            "client"
-            "cabin"
+            "client",
+            "cabin",
             "persons",
             "entrance",
             "exit",
