@@ -6,7 +6,7 @@ from django.contrib import messages
 
 # Register of Client
 def register_client(request):
-    if request.method == "POST":
+    if request.POST:
         form = Register.objects.create(request.POST)
 
         if form.is_valid():

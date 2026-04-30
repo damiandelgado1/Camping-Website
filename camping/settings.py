@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'cabin',
     'client',
+    'reservation',
 ]
 
 MIDDLEWARE = [
