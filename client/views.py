@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, logout
+from django.contrib.auth import authenticate ,login, logout
 from .forms import Contact, Register, Login
 from django.contrib import messages
+from .models import Client
 
 
 # Contact for Camping
 def contact_camping(request):
+
     if request.POST:
-        form = Contact()
+        form = Contact(request.POST)
 
         if form.is_valid():
             name = form.cleaned_data["name"]
@@ -15,13 +17,14 @@ def contact_camping(request):
             phone = form.cleaned_data["phone"]
 
             form.save()
-            return render(request, "home/form.html")
+            return redirect('home')
 
 
 # Register of Client
 def register_client(request):
-    if request.method == "GET":
-        form = Register()
+
+    if request.method == "POST":
+        form = Register(request.POST)
 
         if form.is_valid():
             first_name = form.cleaned_data["first_name"]
@@ -41,40 +44,53 @@ def register_client(request):
                 messages.info(request, 'Las contraseñas No Coinciden. Ingresa la Contraseña nuevamente')
 
             else:
-                form.save()
+                register = Client.objects.create(
+                    first_name=first_name,
+                    last_name=last_name,
+                    email=email,
+                    phone=phone,
+                    password1=password1,
+                    password2=password2,
+                )
+
+                register.save()
+
                 messages.success(request, 'El Registro ha sido Completado')
+                return redirect('home')
 
-                return render(request, "home/register.html")
+    else:
+        messages.info(request, 'El Registro no puede quedar vacio')
+        form = Register()
 
-        else:
-            messages.info(request, 'El Registro no puede quedar vacio')
-            return render(request, "home/register.html")
-    
-    return render(request, "home/register.html")
+    return render(request, "home/register.html", {"form": form})
 
 
 # Login of Client
 def login_client(request):
-    if request.GET:
-        form = Login()
+
+    if request.method == "POST":
+        form = Login(request.POST)
 
         if form.is_valid():
             email = form.cleaned_data["email"]
             password = form.cleaned_data["password"]
 
-            client = authenticate(email, password)
+            client = Client.objects.filter(email=email, password1=password).first()
 
-            if "@gmail.com" not in client.email:
-                messages.info(request, 'El email no es valido. Ingresalo con el "@gmail.com"')
+            if client:
+                request.session['client_id'] = client.id
+                messages.success(request, 'Sesion Iniciada correctamente')
+                return redirect('home')
 
             else:
-                messages.success(request, 'Sesion Iniciada correctamente')
+                messages.error(request, 'El email no es valido. Ingresalo con el "@gmail.com"')
+                print(client)
 
-                return render(request, "home/login.html")
+    else:
+        form = Login()
+        messages.info(request, 'Indica tus datos para Iniciar Sesion')
 
-        else:
-            form = Login()
-            messages.info(request, 'Indica tus datos para Iniciar Sesion')
+    return render(request, "home/login.html", {"form": form})
 
 
 # Logout of Client

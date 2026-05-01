@@ -1,11 +1,9 @@
-{% block content %}
+<h3> Contactar al Camping </h3>
 
-    <form action="" method="post">
+<form action="" method="post">
 
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit"> Contactar al Camping </button>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"> Contactar al Camping </button>
 
-    </form>
-
-{% endblock %}
+</form>
