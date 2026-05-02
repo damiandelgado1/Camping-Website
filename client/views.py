@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate ,login, logout
-from .forms import Contact, Register, Login
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import Client
+from .forms import Contact, Register, Login
 
 
 # Contact for Camping
@@ -13,11 +13,16 @@ def contact_camping(request):
 
         if form.is_valid():
             name = form.cleaned_data["name"]
-            email = form.cleaned_data["email"]
+            username = form.cleaned_data["username"]
             phone = form.cleaned_data["phone"]
 
             form.save()
             return redirect('home')
+
+    else:
+        form = Contact()
+
+    return render(request, "home/form.html")
 
 
 # Register of Client
@@ -29,31 +34,29 @@ def register_client(request):
         if form.is_valid():
             first_name = form.cleaned_data["first_name"]
             last_name = form.cleaned_data["last_name"]
-            email = form.cleaned_data["email"]
+            username = form.cleaned_data["username"]
             phone = form.cleaned_data["phone"]
             password1 = form.cleaned_data["password1"]
             password2 = form.cleaned_data["password2"]
 
-            if email == '':
+            if username == '':
                 messages.error(request, 'El Email no puede estar vacio')
 
-            elif "@gmail.com" not in email:
+            elif "@gmail.com" not in username:
                 messages.info(request, 'El "@gmail.com" no fue Ingresado en el Email. Intentalo de Nuevo')
 
             elif password1 != password2:
                 messages.info(request, 'Las contraseñas No Coinciden. Ingresa la Contraseña nuevamente')
 
             else:
-                register = Client.objects.create(
+                user = User.objects.create_user(
                     first_name=first_name,
                     last_name=last_name,
-                    email=email,
-                    phone=phone,
-                    password1=password1,
-                    password2=password2,
+                    username=username,
+                    password=password1,
                 )
 
-                register.save()
+                user.save()
 
                 messages.success(request, 'El Registro ha sido Completado')
                 return redirect('home')
@@ -72,19 +75,19 @@ def login_client(request):
         form = Login(request.POST)
 
         if form.is_valid():
-            email = form.cleaned_data["email"]
+            username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
 
-            client = Client.objects.filter(email=email, password1=password).first()
+            user = authenticate(request, username=username, password=password)
 
-            if client:
-                request.session['client_id'] = client.id
+            if user is not None:
+                login(request, user)
                 messages.success(request, 'Sesion Iniciada correctamente')
                 return redirect('home')
 
             else:
                 messages.error(request, 'El email no es valido. Ingresalo con el "@gmail.com"')
-                print(client)
+                print(user)
 
     else:
         form = Login()

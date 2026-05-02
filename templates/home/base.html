@@ -11,11 +11,6 @@
         {% include '_includes/header.html' %}
     </header>
 
-    <nav>
-        <a href="{% url 'client:register_client' %}"> Registrarse </a>
-        <a href="{% url 'client:login_client' %}"> Iniciar Sesion </a>
-    </nav>
-
     <!-- Main page with Description by the site -->
     <main>
         {% block content %} {% endblock %}

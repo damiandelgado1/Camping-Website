@@ -14,6 +14,8 @@ def main_page(request):
 def about_site(request):
     return render(request, "home/about.html")
 
+
+
 # Contact form
 def form_contact(request):
     form = Contact()
