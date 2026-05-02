@@ -40,13 +40,13 @@ def register_client(request):
             password2 = form.cleaned_data["password2"]
 
             if username == '':
-                messages.error(request, 'El Email no puede estar vacio')
+                messages.add_message(request, messages.ERROR, f'El Email no puede estar vacio')
 
             elif "@gmail.com" not in username:
-                messages.info(request, 'El "@gmail.com" no fue Ingresado en el Email. Intentalo de Nuevo')
+                messages.add_message(request, messages.INFO, f'El "@gmail.com" no fue Ingresado en el Email. Intentalo de Nuevo')
 
             elif password1 != password2:
-                messages.info(request, 'Las contraseñas No Coinciden. Ingresa la Contraseña nuevamente')
+                messages.add_message(request, messages.INFO, f'Las contraseñas No Coinciden. Ingresa la Contraseña nuevamente')
 
             else:
                 user = User.objects.create_user(
@@ -58,11 +58,11 @@ def register_client(request):
 
                 user.save()
 
-                messages.success(request, 'El Registro ha sido Completado')
+                messages.add_message(request, messages.SUCCESS, f'El Registro ha sido Completado')
                 return redirect('home')
 
     else:
-        messages.info(request, 'El Registro no puede quedar vacio')
+        messages.add_message(request, messages.INFO,f'El Registro no puede quedar vacio')
         form = Register()
 
     return render(request, "home/register.html", {"form": form})
