@@ -1,0 +1,7 @@
+<h3> ¿Quieres eliminar la Cabaña? {{ cabin.number}} </h3>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit"> Eliminar </button>
+</form>

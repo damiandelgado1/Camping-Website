@@ -1,0 +1,17 @@
+{% block cabin %}
+
+    <h2> Cabañas Disponibles </h2>
+
+    {% for cabin in cabins %}
+
+        <article>
+            <img src=" {{ cabin.image }}">
+            <h3> Numero: {{ cabin.number }} </h3>
+            <p> Disponibilidad: {{ cabin.availability }} </p>
+            <p> Precio: {{ cabin.price }} </p>
+            <button><a href="{% url 'cabin:cabin_detail' cabin.pk %}"> Ver Mas </a></button>
+        </article>
+
+    {% endfor %}
+
+{% endblock %}

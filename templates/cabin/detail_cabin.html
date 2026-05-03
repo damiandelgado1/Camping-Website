@@ -1,0 +1,12 @@
+<h3> {{ cabin.number }} </h3>
+<img src="{{ cabin.img }}" >
+<p> <strong> Informacion de la Cabañas </strong> <br>
+    {{ cabin.description }}
+</p>
+<p> Habitaciones: {{ cabin.rooms }} </h3>
+<p> Baños: {{ cabin.bathrooms }} </h3>
+<p> Comedor: {{ cabin.dining_room }} </h3>
+<p> Cocina: {{ cabin.kitchen }} </h3>
+<p> Disponibilidad: {{ cabin.availability }} </h3>
+<p> Precio: {{ cabin.price }} </h3>
+<button><a href="{% url 'home' %}"> Volver a la Lista de Cabañas </a></button>

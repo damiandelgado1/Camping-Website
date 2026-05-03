@@ -1,0 +1,7 @@
+<h3> Crear Cabaña en Arriendo </h3>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"> Crear nueva Cabaña en Arriendo </button>
+</form>
