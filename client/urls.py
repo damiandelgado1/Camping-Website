@@ -3,7 +3,7 @@ from django.contrib import admin
 from .views import contact_camping, register_client, login_client, logout_client
 
 
-app_name = "reservation"
+app_name = "client"
 
 urlpatterns = [
     path('contact/', contact_camping, name="contact_client"),

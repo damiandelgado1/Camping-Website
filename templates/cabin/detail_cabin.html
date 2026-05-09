@@ -1,12 +1,21 @@
 <h3> {{ cabin.number }} </h3>
-<img src="{{ cabin.img }}" >
+<!-- <img src="{{ cabin.img }}" > -->
 <p> <strong> Informacion de la Cabañas </strong> <br>
     {{ cabin.description }}
 </p>
-<p> Habitaciones: {{ cabin.rooms }} </h3>
-<p> Baños: {{ cabin.bathrooms }} </h3>
-<p> Comedor: {{ cabin.dining_room }} </h3>
-<p> Cocina: {{ cabin.kitchen }} </h3>
-<p> Disponibilidad: {{ cabin.availability }} </h3>
-<p> Precio: {{ cabin.price }} </h3>
+<p> Habitaciones: {{ cabin.rooms }} </p>
+<p> Baños: {{ cabin.bathrooms }} </p>
+<p> Comedor: {{ cabin.dining_room }} </p>
+<p> Cocina: {{ cabin.kitchen }} </p>
+<p> Disponibilidad: {{ cabin.availability }} </p>
+<p> Precio: {{ cabin.price }} </p>
+
+{% if user.is_authenticated and not user.is_staff %}
+    <button> <a href="{% url 'reservation:create_reservation' %}"> Hacer una Reserva </a> </button> <br>
+{% elif user.is_staff %}
+    <button> <a href="{% url 'cabin:delete_cabin' cabin.pk %}"> Eliminar Cabaña </a> </button>
+{% else %}
+    <p>Inicia Sesion para Hacer la Reserva</p>
+{% endif %}
+
 <button><a href="{% url 'home' %}"> Volver a la Lista de Cabañas </a></button>

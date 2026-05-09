@@ -1,0 +1,11 @@
+<h3> Hacer una Reserva en la Cabaña {{ cabin.number }} </h3>
+
+{% block content %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit"> Hacer Reserva </button>
+    </form>
+
+{% endblock %}

@@ -1,4 +1,5 @@
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from cabin.models import Cabin
 
@@ -16,9 +17,14 @@ class DetailCabin(DetailView):
     template_name = "cabin/detail_cabin.html"
     context_object_name = "cabin"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["es_propietario"] = self.request.user.is_staff
+        return context
+
 
 # Create a Cabin for reserve
-class CreateCabin(CreateView):
+class CreateCabin(UserPassesTestMixin, CreateView):
     model = Cabin
     fields = [
         "number",
@@ -33,9 +39,15 @@ class CreateCabin(CreateView):
     template_name = "cabin/create_cabin.html"
     success_url = reverse_lazy("home")
 
+    def test_func(self):
+        return self.request.user.is_staff
+
 
 # Delete a Cabin for reserve
-class DeleteCabin(DeleteView):
+class DeleteCabin(UserPassesTestMixin, DeleteView):
     model = Cabin
-    template_name = "cabin/create_cabin.html"
+    template_name = "cabin/delete_cabin.html"
     success_url = reverse_lazy("home")
+
+    def test_func(self):
+        return self.request.user.is_staff

@@ -3,8 +3,13 @@
 {% block content %}
 
     <nav>
-        <a href="{% url 'client:register_client' %}"> Registrarse </a>
-        <a href="{% url 'client:login_client' %}"> Iniciar Sesion </a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'client:logout_client' %}"> Cerrar Sesion </a>
+        {% else %}
+            <a href="{% url 'client:register_client' %}"> Registrarse </a>
+            <a href="{% url 'client:login_client' %}"> Iniciar Sesion </a>
+        {% endif %}
+
         <a href="{% url 'core:about_us' %}"> Sobre el Camping </a>
     </nav>
 

@@ -1,0 +1,7 @@
+<h3> ¿Cancelar la Reserva en la Cabaña {{ cabin.number }}? </h3>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit"> Cancelar Reserva </button>
+</form>

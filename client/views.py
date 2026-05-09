@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -13,10 +15,11 @@ def contact_camping(request):
 
         if form.is_valid():
             name = form.cleaned_data["name"]
-            username = form.cleaned_data["username"]
+            email = form.cleaned_data["email"]
             phone = form.cleaned_data["phone"]
 
             form.save()
+            messages.add_message(request, messages.SUCCESS, f"Gracias por Contactar al Camping")
             return redirect('home')
 
     else:
@@ -35,14 +38,15 @@ def register_client(request):
             first_name = form.cleaned_data["first_name"]
             last_name = form.cleaned_data["last_name"]
             username = form.cleaned_data["username"]
-            phone = form.cleaned_data["phone"]
+            email = form.cleaned_data["email"]
+            is_staff = form.cleaned_data["is_staff"]
             password1 = form.cleaned_data["password1"]
             password2 = form.cleaned_data["password2"]
 
-            if username == '':
+            if email == '':
                 messages.add_message(request, messages.ERROR, f'El Email no puede estar vacio')
 
-            elif "@gmail.com" not in username:
+            elif "@gmail.com" not in email:
                 messages.add_message(request, messages.INFO, f'El "@gmail.com" no fue Ingresado en el Email. Intentalo de Nuevo')
 
             elif password1 != password2:
@@ -53,6 +57,8 @@ def register_client(request):
                     first_name=first_name,
                     last_name=last_name,
                     username=username,
+                    email=email,
+                    is_staff=is_staff,
                     password=password1,
                 )
 
@@ -76,9 +82,10 @@ def login_client(request):
 
         if form.is_valid():
             username = form.cleaned_data["username"]
+            email = form.cleaned_data["email"]
             password = form.cleaned_data["password"]
 
-            user = authenticate(request, username=username, password=password)
+            user = authenticate(request, username=username, email=email, password=password)
 
             if user is not None:
                 login(request, user)
@@ -87,7 +94,7 @@ def login_client(request):
 
             else:
                 messages.error(request, 'El email no es valido. Ingresalo con el "@gmail.com"')
-                print(user)
+                return HttpResponseRedirect(reverse("home"))
 
     else:
         form = Login()
