@@ -1,0 +1,9 @@
+<h3> CABAÑA {{ cabin.number }} </h3>
+<p> {{ cabin.description }} </p>
+<p> Nro. de Habitaciones: {{ cabin.rooms }} </p>
+<p> Baños: {{ cabin.bathrooms }} </p>
+<p> Estado: {{ cabin.availability }} </p>
+<p> Precio: {{ cabin.price }} </p>
+
+<button> <a href="{% url 'cabin:delete_cabin' cabin.pk %}"> Eliminar Cabaña </a> </button> <br>
+<button><a href="{% url 'home' %}"> Volver a la Lista de Cabañas </a></button>

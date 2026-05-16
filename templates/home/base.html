@@ -11,19 +11,36 @@
         {% include '_includes/header.html' %}
     </header>
 
+    <!-- Navegation bar for login client in the site or logout -->
+    <nav>
+        {% if user.is_authenticated and not user.is_staff %}
+            <a href="{% url 'client:logout_client' %}"> Cerrar Sesion </a>
+            <a href="{% url 'core:about_us' %}"> Sobre el Camping </a>
+        {% elif user.is_staff%}
+            <a href="{% url 'client:logout_client' %}"> Cerrar Sesion </a>
+        {% else %}
+            <a href="{% url 'client:register_client' %}"> Registrarse </a>
+            <a href="{% url 'client:login_client' %}"> Iniciar Sesion </a>
+        {% endif %}
+    </nav>
+
     <!-- Main page with Description by the site -->
     <main>
-        {% block content %} {% endblock %}
+        {% if user.is_staff %}
+            {% include 'dashboard/manage_cabin.html' %}
+        {% else %}
+            <!-- Show data about Camping and all Cabin availability -->
+            {% block content %} {% endblock %}
+            <section>
+                {% include 'cabin/list_cabin.html' %}
+            </section>
+
+            <!-- Contact form for contact to Site -->
+            <footer>
+                {% include 'home/form.html' %}
+                {% include '_includes/footer.html' %}
+            </footer>
+        {% endif %}
     </main>
-
-    <!-- Display cabin's availability -->
-    <section>
-        {% block cabin %} {% endblock %}
-    </section>
-
-    <!-- Contact form for contact to Site -->
-    <footer>
-        {% include 'home/form.html' %}
-        {% include '_includes/footer.html' %}
-    </footer>
 </body>
+</html>

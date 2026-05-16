@@ -1,5 +1,4 @@
 <h3> {{ cabin.number }} </h3>
-<!-- <img src="{{ cabin.img }}" > -->
 <p> <strong> Informacion de la Cabañas </strong> <br>
     {{ cabin.description }}
 </p>
@@ -12,8 +11,6 @@
 
 {% if user.is_authenticated and not user.is_staff %}
     <button> <a href="{% url 'reservation:create_reservation' %}"> Hacer una Reserva </a> </button> <br>
-{% elif user.is_staff %}
-    <button> <a href="{% url 'cabin:delete_cabin' cabin.pk %}"> Eliminar Cabaña </a> </button>
 {% else %}
     <p>Inicia Sesion para Hacer la Reserva</p>
 {% endif %}

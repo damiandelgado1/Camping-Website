@@ -5,7 +5,7 @@ from cabin.models import Cabin
 
 
 # Display all Cabin's
-class ListCabin(ListView):
+class ShowCabin(ListView):
     model = Cabin
     template_name = "cabin/list_cabin.html"
     context_object_name = "cabins"
@@ -15,6 +15,20 @@ class ListCabin(ListView):
 class DetailCabin(DetailView):
     model = Cabin
     template_name = "cabin/detail_cabin.html"
+    context_object_name = "cabin"
+
+
+# Manage all Cabin in the Camping
+class ManageCabin(ListView):
+    model = Cabin
+    template_name = "dashboard/manage_cabin.html"
+    context_object_name = "cabins"
+
+
+# See detail of the a Cabin in the camping
+class EditCabin(DetailView):
+    model = Cabin
+    template_name = "dashboard/edit_cabin.html"
     context_object_name = "cabin"
 
     def get_context_data(self, **kwargs):
@@ -28,6 +42,7 @@ class CreateCabin(UserPassesTestMixin, CreateView):
     model = Cabin
     fields = [
         "number",
+        "preview",
         "description",
         "rooms",
         "bathroom",
@@ -36,7 +51,7 @@ class CreateCabin(UserPassesTestMixin, CreateView):
         "availability",
         "price"
     ]
-    template_name = "cabin/create_cabin.html"
+    template_name = "dashboard/create_cabin.html"
     success_url = reverse_lazy("home")
 
     def test_func(self):
@@ -46,7 +61,7 @@ class CreateCabin(UserPassesTestMixin, CreateView):
 # Delete a Cabin for reserve
 class DeleteCabin(UserPassesTestMixin, DeleteView):
     model = Cabin
-    template_name = "cabin/delete_cabin.html"
+    template_name = "dashboard/delete_cabin.html"
     success_url = reverse_lazy("home")
 
     def test_func(self):

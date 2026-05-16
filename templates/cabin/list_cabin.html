@@ -2,14 +2,9 @@
 
     <h2> Cabañas Disponibles </h2>
 
-    {% if user.is_staff %}
-        <a href="{% url 'cabin:create_cabin' %}"> Crear nueva Cabaña </a>
-    {% endif%}
-
     {% for cabin in cabins %}
 
         <article>
-            <img src=" {{ cabin.image }}">
             <h3> Numero: {{ cabin.number }} </h3>
             <p> Disponibilidad: {{ cabin.availability }} </p>
             <p> Precio: {{ cabin.price }} </p>

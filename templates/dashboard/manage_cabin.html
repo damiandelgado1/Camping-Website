@@ -1,0 +1,14 @@
+{% block cabin %}
+
+    <a href="{% url 'cabin:create_cabin' %}"> Crear nueva Cabaña </a>
+
+    {% for cabin in cabins %}
+        <h3> CABAÑA {{ cabin.number }} </h3>
+        <p> {{ cabin.preview }} </p>
+        <p> ESTADO DE DISPONIBILIDAD: {{ cabin.availability }} </p>
+        <p> PRECIO: {{ cabin.price }} </p>
+
+        <button> <a href="{% url 'cabin:cabin_edit' cabin.pk %}"> VER DETALLES </a> </button>
+    {% endfor %}
+
+{% endblock %}

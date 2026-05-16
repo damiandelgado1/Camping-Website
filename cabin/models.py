@@ -3,6 +3,7 @@ from django.db import models
 # Model with Data by the Cabin
 class Cabin(models.Model):
     number = models.IntegerField(verbose_name="Numero de la Cabaña")
+    preview = models.TextField(blank=True, null=True, verbose_name="Preview de la Cabaña")
     description = models.TextField(verbose_name="Descripcion de la Cabaña")
     rooms = models.IntegerField(verbose_name="Nro. de Habitaciones")
     bathroom = models.IntegerField(verbose_name="Nro. de Baños")
