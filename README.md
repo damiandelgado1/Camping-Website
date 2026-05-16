@@ -38,6 +38,10 @@ camping/                             # Project Main
 |   |   |...
 |   |                                
 |   |-- reserv/                      # Creation and Manage Reserv
+|   |   |...
+|   |
+|   |-- dahsboard/                   # Dashboard for Manage properly of the Cabin in the camping
+|       |                            
 |       |...
 |
 |-- .gitignore
