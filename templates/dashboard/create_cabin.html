@@ -2,6 +2,53 @@
 
 <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
+    
+    <!-- Create Cabin with all data -->
+    <div>
+        <label for="form.number.id_for_label"> Nro. de la Cabaña </label> <br>
+        {{ form.number }}
+    </div>
+
+    <div>
+        <label for="form.preview.id_for_label"> Preview de la Cabaña </label> <br>
+        {{ form.preview }}
+    </div>
+
+    <div>
+        <label for="form.description.id_for_label"> Descripcion </label> <br>
+        {{ form.description }}
+    </div>
+
+    <div>
+        <label for="form.rooms.id_for_label"> Nro. de Habitaciones </label> <br>
+        {{ form.rooms }}
+    </div>
+
+    <div>
+        <label for="form.bathroom.id_for_label"> Baños </label> <br>
+        {{ form.bathroom }}
+    </div>
+
+    <div>
+        <label for="form.dining_room.id_for_label"> Comedor </label> <br>
+        {{ form.dining_room }}
+    </div>
+
+    <div>
+        <label for="form.kitchen.id_for_label"> Cocina </label> <br>
+        {{ form.kitchen }}
+    </div>
+
+    <div>
+        <label for="form.availability.id_for_label"> Disponibilidad </label>
+        {{ form.availability }}
+    </div>
+
+    <div>
+        <label for="form.price.id_for_label"> Precio </label> <br>
+        {{ form.price }}
+    </div>
+    <br>
+
     <button type="submit"> Crear nueva Cabaña en Arriendo </button>
 </form>

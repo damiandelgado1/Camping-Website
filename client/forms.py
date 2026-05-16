@@ -14,7 +14,7 @@ class Register(forms.Form):
     last_name = forms.CharField(max_length=20)
     username = forms.CharField(max_length=20)
     email = forms.EmailField()
-    is_staff = forms.BooleanField()
+    is_owner = forms.BooleanField(required=False)
     password1 = forms.CharField(max_length=20, widget=forms.PasswordInput())
     password2 = forms.CharField(max_length=20, widget=forms.PasswordInput())
 

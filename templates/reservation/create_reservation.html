@@ -2,10 +2,47 @@
 
 {% block content %}
 
-    <form method="POST">
+<form method="POST">
         {% csrf_token %}
-        {{ form }}
+
+        <div>
+                <label for="form.client.id_for_label"> Cliente </label> <br>
+                {{ form.client }}
+                <br>
+        </div>
+
+        <div>
+                <label for="form.cabin.id_for_label"> Cabaña </label> <br>
+                {{ form.cabin }}
+                <br>
+        </div>
+
+        <div>
+                <label for="form.persons.id_for_label"> Nro. de Personas </label> <br>
+                {{ form.persons }}
+                <br>
+        </div>
+
+        <div>
+                <label for="form.entrance.id_for_label"> Fecha de Entrada </label> <br>
+                {{ form.entrance }}
+                <br>
+        </div>
+
+        <div>
+                <label for="form.exit.id_for_label"> Fecha de Salida </label> <br>
+                {{ form.exit }}
+                <br>
+        </div>
+
+        <div>
+                <label for="form.payment.id_for_label"> Monto de Pagar </label> <br>
+                {{ form.payment }}
+                <br>
+        </div>
+        <br>
+
         <button type="submit"> Hacer Reserva </button>
-    </form>
+</form>
 
 {% endblock %}

@@ -39,7 +39,7 @@ def register_client(request):
             last_name = form.cleaned_data["last_name"]
             username = form.cleaned_data["username"]
             email = form.cleaned_data["email"]
-            is_staff = form.cleaned_data["is_staff"]
+            is_owner = form.cleaned_data["is_owner"]
             password1 = form.cleaned_data["password1"]
             password2 = form.cleaned_data["password2"]
 
@@ -58,7 +58,7 @@ def register_client(request):
                     last_name=last_name,
                     username=username,
                     email=email,
-                    is_staff=is_staff,
+                    is_staff=is_owner,
                     password=password1,
                 )
 

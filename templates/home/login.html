@@ -3,7 +3,25 @@
 <form method="POST">
 
         {% csrf_token %}
-        {{ form.as_p }}
+        <div>
+                <label for="form.username.id_for_label"> Nombre </label> <br>
+                {{ form.username }}
+                <br>
+        </div>
+
+        <div>
+                <label for="form.email.id_for_label"> Email </label> <br>
+                {{ form.email }}
+                <br>
+        </div>
+
+        <div>
+                <label for="form.password.id_for_label"> Password </label> <br>
+                {{ form.password }}
+                <br>
+        </div>
+        <br>
+
         <button type="submit"> Iniciar Sesion </button>
 
 </form>
