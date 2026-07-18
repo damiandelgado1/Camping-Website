@@ -1,0 +1,141 @@
+.link-navegation {
+  color: black;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  position: relative;
+  z-index: 999;
+  left: 500px;
+  bottom: 50px;
+  text-decoration: none;
+}
+
+.link-navegation:hover {
+  background-color: #ACACAC;
+  border-radius: 4px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.service {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.service-camping {
+  margin: 30px;
+}
+
+.cabins-availability {
+  position: relative;
+  bottom: 270px;
+}
+
+.cabins {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cabin {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #343434;
+  margin: 20px;
+  padding: 10px;
+  height: 200px;
+  width: 350px;
+}
+
+.cabin > p {
+  margin-left: 15px;
+  text-align: left;
+}
+
+.cabin-action {
+  background-color: #966F33;
+  border-radius: 4px;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.cabin-action > a {
+  color: white;
+  text-decoration: none;
+}
+
+.login-action {
+  background-color: #966F33;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  font-size: 15px;
+  margin: 20px;
+  padding: 8px;
+  position: relative;
+  left: 30px;
+  text-decoration: none;
+}
+
+* {
+  font-family: "Ancizar Serif";
+}
+
+body {
+  background-color: #F0F0F0;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.name-camping {
+  position: relative;
+  right: 450px;
+  top: 10px;
+}
+
+.navegation-site {
+  margin: 35px;
+}
+
+.phrase-camping {
+  background-image: url("/static/img/camping.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  color: white;
+  padding: 500px;
+  position: relative;
+  bottom: 170px;
+}
+
+.description-camping {
+  background-color: #966F33;
+  color: white;
+  font-size: 25px;
+  padding: 50px 0 225px 0;
+  position: relative;
+  bottom: 350px;
+}
+
+.contact-camping {
+  position: relative;
+  bottom: 150px;
+}
+
+.contact-site {
+  margin-left: 625px;
+  text-align: left;
+}
+
+.footer-site {
+  position: relative;
+  bottom: 180px;
+  width: 1250px;
+}
+
+/*# sourceMappingURL=style.css.map */

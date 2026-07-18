@@ -1,6 +1,13 @@
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
 <h3> Contactar al Camping </h3>
 
-<form action="" method="post">
+<form action="" method="post" class="contact-site">
 
     {% csrf_token %}
 
@@ -23,6 +30,6 @@
     </div>
     <br>
 
-    <button type="submit"> Contactar al Camping </button>
+    <button type="submit" class="login-action"> Contactar al Camping </button>
 
 </form>

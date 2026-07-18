@@ -1,0 +1,63 @@
+@use './link-navegation/link-navegation.scss';
+@use './service-camping/service-camping.scss';
+@use './cabin/cabin.scss';
+@use './cabin-action/cabin-action.scss';
+@use './login-action/login-action.scss';
+
+
+* {
+    font-family: "Ancizar Serif";
+}
+
+body {
+    background-color: #F0F0F0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.name-camping {
+    position: relative;
+    right: 450px;
+    top: 10px;
+}
+
+.navegation-site {
+    margin: 35px;
+}
+
+.phrase-camping {
+    background-image: url("/static/img/camping.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    color: white;
+    padding: 500px;
+    position: relative;
+    bottom: 170px;
+}
+
+.description-camping {
+    background-color: #966F33;
+    color: white;
+    font-size: 25px;
+    padding: 50px 0 225px 0;
+    position: relative;
+    bottom: 350px;
+}
+
+.contact-camping {
+    position: relative;
+    bottom: 150px;
+}
+
+.contact-site {
+    margin-left: 625px;
+    text-align: left;
+}
+
+.footer-site {
+    position: relative;
+    bottom: 180px;
+    width: 1250px;
+}

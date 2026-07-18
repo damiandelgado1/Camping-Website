@@ -1,7 +1,14 @@
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
 {% block content %}
 
     <nav>
-        <a href="{% url 'home' %}"> Volver al Inicio </a>
+        <a href="{% url 'home' %}" class="return"> Volver al Inicio </a>
     </nav>
 
     <h1> Sobre el Camping </h1>
@@ -43,8 +50,10 @@
         en la Naturaleza
     </p>
 
-    <h2> Contacto </h2>
-    <li> Telefono: +56 9 6271 3845 </li>
-    <li> Email: contacto@senderodelcondor.com </li>
+    <footer class="contact-camping">
+        <h2> Contacto </h2>
+        <p> Telefono: +56 9 6271 3845 </p>
+        <p> Email: contacto@senderodelcondor.com </p>
+    </footer>
 
 {% endblock %}

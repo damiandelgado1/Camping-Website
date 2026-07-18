@@ -1,14 +1,23 @@
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
 {% block cabin %}
 
-    <a href="{% url 'cabin:create_cabin' %}"> Crear nueva Cabaña </a>
+    <a href="{% url 'cabin:create_cabin' %}" class="cabin-action"> Crear nueva Cabaña </a>
 
     {% for cabin in cabins %}
-        <h3> CABAÑA {{ cabin.number }} </h3>
-        <p> {{ cabin.preview }} </p>
-        <p> ESTADO DE DISPONIBILIDAD: {{ cabin.availability }} </p>
-        <p> PRECIO: {{ cabin.price }} </p>
+        <article class="cabins">
+            <h3> CABAÑA {{ cabin.number }} </h3>
+            <p> {{ cabin.preview }} </p>
+            <p> ESTADO DE DISPONIBILIDAD: {{ cabin.availability }} </p>
+            <p> PRECIO: {{ cabin.price }} </p>
 
-        <button> <a href="{% url 'cabin:cabin_edit' cabin.pk %}"> VER DETALLES </a> </button>
+            <button> <a href="{% url 'cabin:cabin_edit' cabin.pk %}" class="cabin-action"> VER DETALLES </a> </button>
+        </article>
     {% endfor %}
 
 {% endblock %}

@@ -1,16 +1,31 @@
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
 {% block cabin %}
 
-    <h2> Cabañas Disponibles </h2>
+    <section class="cabins-availability">
 
-    {% for cabin in cabins %}
+        <h2> Cabañas Disponibles </h2>
 
-        <article>
-            <h3> Numero: {{ cabin.number }} </h3>
-            <p> Disponibilidad: {{ cabin.availability }} </p>
-            <p> Precio: {{ cabin.price }} </p>
-            <button><a href="{% url 'cabin:cabin_detail' cabin.pk %}"> Ver Mas </a></button>
-        </article>
+        <div class="cabins">
 
-    {% endfor %}
+            {% for cabin in cabins %}
+
+                <article class="cabin">
+                    <h3> Numero: {{ cabin.number }} </h3>
+                    <p> Disponibilidad: {{ cabin.availability }} </p>
+                    <p> Precio: {{ cabin.price }} </p>
+                    <button class="cabin-action"> <a href="{% url 'cabin:cabin_detail' cabin.pk %}"> Ver Mas </a> </button>
+                </article>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
 
 {% endblock %}

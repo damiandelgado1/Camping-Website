@@ -1,7 +1,14 @@
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
 <h3> ¿Quieres eliminar la Cabaña? {{ cabin.number}} </h3>
 
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit"> Eliminar </button>
+    <button type="submit" class="cabin-action"> Eliminar </button>
 </form>

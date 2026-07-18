@@ -1,0 +1,25 @@
+.cabins-availability {
+    position: relative;
+    bottom: 270px;
+}
+
+.cabins {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cabin {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #343434;
+    margin: 20px;
+    padding: 10px;
+    height: 200px;
+    width: 350px;
+}
+
+.cabin > p {
+    margin-left: 15px;
+    text-align: left;
+}
