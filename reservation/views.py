@@ -3,7 +3,21 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import MakeReservation
 from .models import Reservation
-from cabin.models import Cabin
+from django.views.generic import ListView, DetailView
+
+
+# Display all Reservation created
+class ReservationList(ListView):
+    model = Reservation
+    template_name = "reservation/list_reservation.html"
+    context_object_name = "reservations"
+
+
+# Show detail reservation
+class ReservationDetail(DetailView):
+    model = Reservation
+    template_name = "reservation/detail_reservation.html"
+    context_object_name = "reservation"
 
 
 # Create a Reservation
@@ -58,9 +72,9 @@ def create_reservation(request):
 
 # Cancel a Reservation
 @login_required
-def cancel_reservation(request):
+def cancel_reservation(request, id):
     if request.method == "POST":
-        form = Reservation()
+        form = Reservation.objects.get(pk=id)
         form.delete()
 
         messages.info(request, "Reserva cancelada")

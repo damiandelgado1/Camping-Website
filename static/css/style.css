@@ -18,6 +18,27 @@
   padding: 10px;
 }
 
+.register-site {
+  margin-left: 650px;
+  text-align: left;
+}
+
+.login-site {
+  margin-left: 650px;
+  text-align: left;
+}
+
+.login-action {
+  background-color: #966F33;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  font-size: 15px;
+  margin: 20px;
+  padding: 8px;
+  text-decoration: none;
+}
+
 .service {
   display: flex;
   flex-wrap: wrap;
@@ -25,7 +46,7 @@
 }
 
 .service-camping {
-  margin: 30px;
+  margin: 50px;
 }
 
 .cabins-availability {
@@ -54,6 +75,30 @@
   text-align: left;
 }
 
+.detail-cabin {
+  margin: 50px;
+  margin-left: 575px;
+  text-align: left;
+}
+
+.detail-cabin > .number-cabin {
+  margin-left: 100px;
+}
+
+.action-cabin {
+  background-color: #966F33;
+  border: none;
+  color: white;
+  padding: 15px;
+  text-decoration: none;
+}
+
+.return-cabin {
+  background-color: #966F33;
+  color: white;
+  text-decoration: none;
+}
+
 .cabin-action {
   background-color: #966F33;
   border-radius: 4px;
@@ -68,16 +113,131 @@
   text-decoration: none;
 }
 
-.login-action {
+.reservation-created {
+  margin: 50px;
+}
+
+.reservation {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #343434;
+  margin: 20px;
+  margin-left: 450px;
+  padding: 10px;
+  height: 240px;
+  width: 550px;
+}
+
+.cabin-number {
+  margin-left: 350px;
+  text-align: left;
+}
+
+.reservation > p {
+  margin-left: 350px;
+  text-align: left;
+}
+
+.reservation-detail {
+  background-color: #966F33;
+  border-radius: 4px;
+  border: none;
+  font-size: 18px;
+  margin: 20px;
+  padding: 10px;
+  position: relative;
+  left: 220px;
+}
+
+.reservation-detail > a {
+  color: white;
+  text-decoration: none;
+}
+
+.detail-reservation {
+  margin: 50px;
+  margin-left: 550px;
+  text-align: left;
+}
+
+.reservation-cabin {
+  margin: 50px;
+  margin-left: 575px;
+  text-align: left;
+}
+
+.reservation-action {
+  background-color: #966F33;
+  border-radius: 4px;
+  border: none;
+  font-size: 15px;
+  padding: 10px;
+  position: relative;
+  left: 20px;
+  top: 20px;
+}
+
+.reservation-action > a {
+  color: white;
+  text-decoration: none;
+}
+
+.action-reservation {
   background-color: #966F33;
   border-radius: 4px;
   border: none;
   color: white;
   font-size: 15px;
-  margin: 20px;
-  padding: 8px;
+  padding: 10px;
   position: relative;
-  left: 30px;
+  left: 20px;
+  top: 20px;
+}
+
+.reservation-cancel {
+  background-color: #966F33;
+  border-radius: 4px;
+  border: none;
+  font-size: 15px;
+  padding: 10px;
+  position: relative;
+  left: 10px;
+  top: 30px;
+}
+
+.reservation-cancel > a {
+  color: white;
+  text-decoration: none;
+}
+
+.return-reservation {
+  background-color: #966F33;
+  border-radius: 4px;
+  border: none;
+  font-size: 15px;
+  padding: 10px;
+  position: relative;
+  left: 20px;
+  top: 30px;
+}
+
+.return-reservation > a {
+  color: white;
+  text-decoration: none;
+}
+
+.return-cabin {
+  background-color: #966F33;
+  border-radius: 4px;
+  border: none;
+  padding: 10px;
+  position: relative;
+  left: 170px;
+  bottom: 16px;
+}
+
+.return-cabin > a {
+  color: white;
   text-decoration: none;
 }
 
@@ -117,7 +277,7 @@ body {
   background-color: #966F33;
   color: white;
   font-size: 25px;
-  padding: 50px 0 225px 0;
+  padding: 50px 0 150px 0;
   position: relative;
   bottom: 350px;
 }
@@ -125,6 +285,23 @@ body {
 .contact-camping {
   position: relative;
   bottom: 150px;
+}
+
+.camping-about {
+  margin-right: 490px;
+  text-align: center;
+}
+
+.about-camping {
+  margin-top: 50px;
+  margin-left: 480px;
+  text-align: left;
+}
+
+.camping-contact {
+  margin-left: 575px;
+  margin-top: 50px;
+  text-align: left;
 }
 
 .contact-site {
@@ -136,6 +313,17 @@ body {
   position: relative;
   bottom: 180px;
   width: 1250px;
+}
+
+.return {
+  color: black;
+  font-size: 18px;
+  margin: 20px;
+  padding: 8px;
+  position: relative;
+  right: 575px;
+  top: 30px;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=style.css.map */

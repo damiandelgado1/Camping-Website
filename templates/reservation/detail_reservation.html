@@ -1,0 +1,17 @@
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+<article class="detail-reservation">
+    <h3 class="number-cabin"> CABAÑA Nro. {{ cabin.number }} </h3>
+    <p> Cliente que hizo la Reserva: {{ reservation.client.name }} </p>
+    <p> Nro. de Personas que Ingresan: {{ reservation.persons }} </p>
+    <p> Fecha de Entrada: {{ reservation.entrance }} </p>
+    <p> Fecha de Salida: {{ reservation.exit }} </p>
+
+    <button class="reservation-cancel"> <a href="{% url 'reservation:cancel_reservation' reservation.pk %}"> Cancelar Reserva </a> </button>
+    <button class="return-reservation"> <a href="{% url 'reservation:list_reservation' %}"> Volver a la Lista de Reservas </a> </button>
+</article>

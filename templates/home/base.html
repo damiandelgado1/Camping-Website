@@ -20,6 +20,7 @@
     <nav class="navegation-site">
         {% if user.is_authenticated and not user.is_staff %}
             <a href="{% url 'client:logout_client' %}" class="link-navegation"> Cerrar Sesion </a>
+            <a href="{% url 'reservation:list_reservation' %}" class="link-navegation"> Mis Reservas </a>
         {% elif user.is_staff%}
             <a href="{% url 'client:logout_client' %}" class="link-navegation"> Cerrar Sesion </a>
         {% else %}

@@ -18,10 +18,10 @@
     <p class="specification-cabin"> Precio: {{ cabin.price }} </p>
 
     {% if user.is_authenticated and not user.is_staff %}
-        <button> <a href="{% url 'reservation:create_reservation' %}" class="cabin-action"> Hacer una Reserva </a> </button> <br>
+        <button class="reservation-action"> <a href="{% url 'reservation:create_reservation' %}"> Hacer una Reserva </a> </button> <br>
     {% else %}
         <p>Inicia Sesion para Hacer la Reserva</p>
     {% endif %}
 
-    <button><a href="{% url 'home' %}" class="cabin-action"> Volver a la Lista de Cabañas </a></button>
+    <button class="return-cabin"> <a href="{% url 'home' %}"> Volver a la Lista de Cabañas </a> </button>
 </article>

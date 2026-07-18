@@ -1,4 +1,5 @@
 {% extends 'home/base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -12,20 +13,22 @@
         </p>
         
         <section class="service">
+
             <article class="service-camping">
                 <p> Lago para Refrescarse </p>
-                <img src="" width="200"></img>
+                <img src="{% static 'img/lago.png' %}" width="120">
             </article>
-            
+
             <article class="service-camping">
                 <p> Navegacion con Kayak </p>
-                <img src="" width="200"></img>
+                <img src="{% static 'img/kayak.png' %}" width="120">
             </article>
-            
+
             <article class="service-camping">
                 <p> Fogata con Parilla </p>
-                <img src="" width="200"></img>
+                <img src="{% static 'img/fogata.png' %}" width="120">
             </article>
+
         </section>
     </main>
 

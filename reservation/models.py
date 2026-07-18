@@ -13,3 +13,7 @@ class Reservation(models.Model):
 
     def __str__(self):
         return f"Cabaña {self.cabin} reservada por {self.client}"
+
+    class Meta:
+        verbose_name = "reservations"
+        verbose_name_plural = "reservations"

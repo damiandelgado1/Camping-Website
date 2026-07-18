@@ -5,11 +5,12 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 
-<h3> Hacer una Reserva en la Cabaña {{ cabin.number }} </h3>
-
 {% block content %}
 
-<form method="POST">
+<form method="POST" class="reservation-cabin">
+
+        <h3> Hacer una Reserva en la Cabaña {{ cabin.number }} </h3>
+
         {% csrf_token %}
 
         <div>
@@ -49,7 +50,7 @@
         </div>
         <br>
 
-        <button type="submit" class="reservation-action"> Hacer Reserva </button>
+        <button type="submit" class="action-reservation"> Hacer Reserva </button>
 </form>
 
 {% endblock %}

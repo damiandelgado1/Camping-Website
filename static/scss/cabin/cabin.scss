@@ -23,3 +23,27 @@
     margin-left: 15px;
     text-align: left;
 }
+
+.detail-cabin {
+    margin: 50px;
+    margin-left: 575px;
+    text-align: left;
+}
+
+.detail-cabin > .number-cabin {
+    margin-left: 100px;
+}
+
+.action-cabin {
+    background-color: #966F33;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+}
+
+.return-cabin {
+    background-color: #966F33;
+    color: white;
+    text-decoration: none;
+}

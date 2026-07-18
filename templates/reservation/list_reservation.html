@@ -1,0 +1,32 @@
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+{% block reservation %}
+
+    <nav>
+        <a href="{% url 'home' %}" class="return"> Volver al Inicio </a>
+    </nav>
+
+    <h2 class="reservation-created"> Reservas Creadas </h2>
+
+    <div class="reservations">
+
+        {% for reservation in reservations %}
+
+            <article class="reservation">
+                <h3 class="cabin-number"> RESERVA: {{ reservation.cabin.number }} </h3>
+                <p> Cliente que hizo la Reserva: {{ reservation.client.name }} </p>
+                <p> Entrada: {{ reservation.entrance }} </p>
+                <p> Salida: {{ reservation.exit }} </p>
+                <button class="reservation-detail"> <a href="{% url 'reservation:detail_reservation' reservation.pk %}"> Ver Mas </a> </button>
+            </article>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
