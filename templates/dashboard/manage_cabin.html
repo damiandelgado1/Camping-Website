@@ -7,17 +7,23 @@
 
 {% block cabin %}
 
-    <a href="{% url 'cabin:create_cabin' %}" class="cabin-action"> Crear nueva Cabaña </a>
+    <a href="{% url 'cabin:create_cabin' %}" class="cabin-create"> Crear nueva Cabaña </a>
 
-    {% for cabin in cabins %}
-        <article class="cabins">
-            <h3> CABAÑA {{ cabin.number }} </h3>
-            <p> {{ cabin.preview }} </p>
-            <p> ESTADO DE DISPONIBILIDAD: {{ cabin.availability }} </p>
-            <p> PRECIO: {{ cabin.price }} </p>
+    <section class="cabin-management">
 
-            <button> <a href="{% url 'cabin:cabin_edit' cabin.pk %}" class="cabin-action"> VER DETALLES </a> </button>
-        </article>
-    {% endfor %}
+        {% for cabin in cabins %}
+
+            <article class="cabin-manage">
+                <h3> CABAÑA {{ cabin.number }} </h3>
+                <p> {{ cabin.preview }} </p>
+                <p> ESTADO DE DISPONIBILIDAD: {{ cabin.availability }} </p>
+                <p> PRECIO: {{ cabin.price }} </p>
+
+                <button class="edit-cabin"> <a href="{% url 'cabin:cabin_edit' cabin.pk %}"> VER DETALLES </a> </button>
+            </article>
+
+        {% endfor %}
+
+    </section>
 
 {% endblock %}

@@ -34,6 +34,11 @@
     margin-left: 100px;
 }
 
+.cabin-detail > a {
+    color: white;
+    text-decoration: none;
+}
+
 .action-cabin {
     background-color: #966F33;
     border: none;
@@ -42,8 +47,87 @@
     text-decoration: none;
 }
 
+.cabin-create {
+    background-color: #966F33;
+    border-radius: 4px;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
 .return-cabin {
     background-color: #966F33;
     color: white;
+    text-decoration: none;
+}
+
+.return-dashboard {
+    color: black;
+    margin-right: 1050px;
+    position: relative;
+    top: 50px;
+    text-decoration: none;
+}
+
+.cabin-management {
+    margin-top: 50px;
+}
+
+.cabin-manage {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #343434;
+    margin: 20px;
+    padding: 10px;
+    position: relative;
+    left: 545px;
+    height: 240px;
+    width: 350px;
+}
+
+.cabin-description {
+    text-align: left;
+}
+
+.cabin-edit {
+    border-radius: 4px;
+    border: none;
+    margin: 50px;
+    margin-left: 575px;
+    padding: 10px;
+    text-align: left;
+}
+
+.edit-cabin {
+    background-color: #966F33;
+    border-radius: 4px;
+    border: none;
+    margin: 20px;
+    padding: 10px;
+}
+
+.edit-cabin > a {
+    color: white;
+    text-decoration: none;
+}
+
+.delete-cabin {
+    margin: 30px;
+}
+
+.cabin-delete {
+    background-color: #966F33;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    margin: 20px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.cabin-delete > a {
+    color: white;
+    font-size: 18px;
     text-decoration: none;
 }

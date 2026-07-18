@@ -7,8 +7,8 @@
 
 <h3> ¿Quieres eliminar la Cabaña? {{ cabin.number}} </h3>
 
-<form method="POST">
+<form method="POST" class="delete-cabin">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="cabin-action"> Eliminar </button>
+    <button type="submit" class="cabin-delete"> Eliminar </button>
 </form>

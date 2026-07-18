@@ -6,10 +6,10 @@
 
 
 <nav>
-    <button><a href="{% url 'home' %}" class="return"> Volver a la Lista de Cabañas </a></button>
+    <a href="{% url 'home' %}" class="return-dashboard"> Volver a la Lista de Cabañas </a>
 </nav>
 
-<article class="description-cabin">
+<article class="cabin-edit">
     <h3 class="number-cabin"> CABAÑA {{ cabin.number }} </h3>
     <p> {{ cabin.description }} </p>
     <p> Nro. de Habitaciones: {{ cabin.rooms }} </p>
@@ -17,5 +17,5 @@
     <p> Estado: {{ cabin.availability }} </p>
     <p> Precio: {{ cabin.price }} </p>
     
-    <button> <a href="{% url 'cabin:delete_cabin' cabin.pk %}" class="cabin-action"> Eliminar Cabaña </a> </button> <br>
+    <button class="cabin-delete"> <a href="{% url 'cabin:delete_cabin' cabin.pk %}"> Eliminar Cabaña </a> </button> <br>
 </article>

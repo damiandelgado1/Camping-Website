@@ -7,7 +7,7 @@
 
 <h3> Crear Cabaña en Arriendo </h3>
 
-<form method="POST">
+<form method="POST" class="create-cabin">
     {% csrf_token %}
     
     <!-- Create Cabin with all data -->
@@ -57,5 +57,5 @@
     </div>
     <br>
 
-    <button type="submit" class="cabin-action"> Crear nueva Cabaña en Arriendo </button>
+    <button type="submit" class="cabin-create"> Crear nueva Cabaña en Arriendo </button>
 </form>
